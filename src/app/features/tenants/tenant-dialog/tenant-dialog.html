@@ -1,0 +1,120 @@
+<h2 mat-dialog-title>Add Tenant</h2>
+
+<form [formGroup]="tenantForm">
+
+  <mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Company Name</mat-label>
+      <input
+        matInput
+        formControlName="companyName"
+      />
+      @if(tenantForm.get('companyName')?.hasError('required')
+        && tenantForm.get('companyName')?.touched) {
+          <mat-error>Tenant Name is Required</mat-error>
+      }
+      @if(tenantForm.get('companyName')?.hasError('minlength')) {
+        <mat-error>Minimum 3 characters required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Industry</mat-label>
+      <mat-select formControlName="industry">
+        @for(industry of industryList; track industry.id) {
+          <mat-option [value]="industry.industryName" matTooltip="{{'Example- ' + industry.indExample}}">
+            {{industry.industryName}}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Admin Name</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="adminName"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Admin Email</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="adminEmail"
+      />
+      @if(tenantForm.get('adminEmail')?.hasError('email')) {
+        <mat-error>Invalid Email Format</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Plan</mat-label>
+      <mat-select formControlName="plan">
+        @for(plan of planList; track plan.id) {
+          <mat-option [value]="plan.planName">
+            {{plan.planName}}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-radio-group aria-label="Status" formControlName="status">
+      @for(status of statusTypes; track status.id) {
+        <mat-radio-button [value]="status.name">{{status.name}}</mat-radio-button>
+      }
+    </mat-radio-group>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Total Users</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="totalUsers"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Active Users</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="activeUsers"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Monthly Revenue in CR</mat-label>
+      <span matTextPrefix><mat-icon>currency_rupee</mat-icon></span>
+      <input
+        matInput
+        type="number"
+        formControlName="monthlyRevenue"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Country</mat-label>
+      <mat-select formControlName="country">
+        @for(country of countryList; track country.id) {
+          <mat-option [value]="country.name">
+            {{country.name}}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="saveTenant()"
+      [disabled]="tenantForm.invalid">Save</button>
+  </mat-dialog-actions>
+
+</form>

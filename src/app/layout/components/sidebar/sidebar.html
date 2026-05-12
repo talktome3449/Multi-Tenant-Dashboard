@@ -1,0 +1,49 @@
+<div class="sidebar-wrapper">
+
+  <!-- LOGO -->
+  <div class="logo-block">
+
+    <div class="logo-icon">
+      <mat-icon>
+        dashboard_customize
+      </mat-icon>
+    </div>
+
+    <div>
+      <div class="logo-title">
+        SaaS Panel
+      </div>
+
+      <div class="logo-subtitle">
+        Multi Tenant Admin
+      </div>
+    </div>
+
+  </div>
+
+  <!-- MENU -->
+  <mat-nav-list>
+
+    @for (item of menu; track item.path) {
+
+      <a
+        mat-list-item
+        [routerLink]="item.path"
+        routerLinkActive="active-link"
+      >
+
+        <mat-icon matListItemIcon>
+          {{ item.icon }}
+        </mat-icon>
+
+        <span matListItemTitle>
+          {{ item.label }}
+        </span>
+
+      </a>
+
+    }
+
+  </mat-nav-list>
+
+</div>

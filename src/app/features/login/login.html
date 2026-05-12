@@ -1,0 +1,34 @@
+<div class="login-wrapper">
+  <mat-card class="login-card">
+    <h2>Login</h2>
+    <form [formGroup]="form">
+      <mat-form-field
+        appearance="outline"
+      >
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+        />
+      </mat-form-field>
+      <mat-form-field
+        appearance="outline"
+      >
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+        />
+      </mat-form-field>
+      <button
+        mat-flat-button
+        color="primary"
+        (click)="login()"
+      >
+        Login
+      </button>
+    </form>
+  </mat-card>
+</div>

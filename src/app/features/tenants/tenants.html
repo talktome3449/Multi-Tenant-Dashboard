@@ -1,0 +1,57 @@
+<div class="tenant-header">
+  <div class="page-title">Tenants</div>
+  <button
+    mat-flat-button
+    (click)="openTenantDialog()">
+    <mat-icon>add</mat-icon>
+    Add Tenant
+  </button>
+</div>
+
+<div class="tenant-grid">
+  @if (tenants$ | async; as tenants) {
+    @for (tenant of tenants; track tenant.tenantId) {
+    <mat-card class="tenant-card">
+      <mat-card-content>
+        <div class="card-top">
+          <div class="company-block">
+            <div class="company-logo">{{ tenant.companyName.charAt(0) | titlecase }}</div>
+            <div>
+              <div class="company-name">{{ tenant.companyName |titlecase }}</div>
+              <div class="tenant-id">{{ tenant.tenantId }}</div>
+            </div>
+          </div>
+          <mat-chip class="plan-chip" [ngClass]="tenant.plan.toLowerCase()">
+            {{ tenant.plan }}
+          </mat-chip>
+        </div>
+        <div class="tenant-info">
+          <div class="info-item">
+            <span>Users</span>
+            <strong>{{ tenant.users }}</strong>
+          </div>
+          <div class="info-item">
+            <span>Revenue (cr)</span>
+            <strong>₹ {{ tenant.monthlyRevenue }}</strong>
+          </div>
+          <div class="info-item">
+            <span>Created</span>
+            <strong>{{ tenant.createdAt }}</strong>
+          </div>
+        </div>
+        <div class="card-bottom">
+          <mat-chip class="status-chip" [ngClass]="tenant.status.toLowerCase()">
+            {{ tenant.status }}
+          </mat-chip>
+          <button mat-button color="primary">
+            View Details
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  }
+  } @else {
+    <mat-spinner diameter="40"></mat-spinner>
+  }
+  
+</div>

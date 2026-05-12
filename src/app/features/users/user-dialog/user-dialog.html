@@ -1,0 +1,71 @@
+<h2 mat-dialog-title>Add User</h2>
+
+<form [formGroup]="userForm">
+  <mat-dialog-content>
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="username"
+      />
+      @if(userForm.get('username')?.hasError('required')
+        && userForm.get('username')?.touched) {
+          <mat-error>Username is required</mat-error>
+      }
+      @if(userForm.get('username')?.hasError('minlength')) {
+        <mat-error>Minimum 3 characters required</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="email"
+      />
+      @if(userForm.get('email')?.hasError('email')
+        && userForm.get('username')?.touched) {
+          <mat-error>Invalid Email Format</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role">
+        @for(role of userRoles; track role.id) {
+          <mat-option [value]="role.name">{{role.name}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Tenant</mat-label>
+      <mat-select formControlName="tenant">
+        @for(tenant of tenantList; track tenant._id) {
+          <mat-option [value]="tenant.companyName">{{tenant.companyName}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-radio-group aria-label="Status" formControlName="status">
+      @for(status of statusTypes; track status.id) {
+        <mat-radio-button [value]="status.name">{{status.name}}</mat-radio-button>
+      }
+    </mat-radio-group>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="save()"
+      [disabled]="userForm.invalid">
+      {{ data ? 'Update' : 'Save' }}
+    </button>
+  </mat-dialog-actions>
+
+</form>

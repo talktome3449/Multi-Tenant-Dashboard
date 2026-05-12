@@ -1,0 +1,99 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  /* border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: white; */
+
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+}
+
+.toolbar-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.profile-btn {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.avatar-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  /* background: linear-gradient(
+    135deg,
+    #e91e63,
+    #f06292
+  ); */
+  color: white;
+  font-weight: 600;
+  /* box-shadow: 0 8px 20px rgba(233,30,99,0.22); */
+
+  background: var(--primary-gradient);
+  box-shadow: 0 8px 20px var(--primary-shadow);
+}
+
+.profile-menu {
+  min-width: 220px;
+}
+
+/* MENU */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  /* background:
+    linear-gradient(
+      135deg,
+      #e91e63,
+      #f06292
+    ); */
+  color: white;
+  background: var(--primary-gradient);
+  box-shadow: 0 8px 20px var(--primary-shadow);
+}
+
+.profile-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+
+.profile-name {
+  font-weight: 600;
+}
+
+.profile-role {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.mat-mdc-menu-item:hover {
+  background: rgba(233,30,99,0.08);
+}
+
+/* .login-button {
+  background: lightgray;
+}
+
+.login-button:hover {
+  background: blueviolet;
+} */
+
+.theme-btn {
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}

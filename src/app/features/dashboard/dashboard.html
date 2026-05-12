@@ -1,0 +1,124 @@
+<div class="dashboard">
+  <!-- STATS -->
+  <div class="stats-grid">
+    @for (item of matricsData; track item.title) {
+    <mat-card appearance="outlined" class="stat-card">
+      <mat-card-content>
+        <div class="stat-title">{{ item.title }}</div>
+        <div class="stat-value">{{ item.value }}</div>
+        <div class="stat-change">{{ item.change }}</div>
+      </mat-card-content>
+    </mat-card>
+    }
+  </div>
+
+  <div class="large-chart-grid">
+    <mat-card class="chart-card large-card">
+      <div class="chart-title">Revenue Analytics</div>
+      <div class="chart-wrapper">
+        <canvas baseChart [data]="revenueChartData" [type]="'bar'">
+        </canvas>
+      </div>
+    </mat-card>
+
+    <mat-card class="chart-card large-card">
+      <div class="chart-title">Users Per Tenant</div>
+      <div class="chart-wrapper">
+        <canvas baseChart [data]="usersChartData" [type]="'line'">
+        </canvas>
+      </div>
+    </mat-card>
+  </div>
+
+  <div class="small-chart-grid">
+    <mat-card class="chart-card">
+      <div class="chart-title">Plan Distribution</div>
+      <div class="small-chart-wrapper">
+        <canvas baseChart [data]="planChartData" [type]="'doughnut'">
+        </canvas>
+      </div>
+      <div class="legend">
+        <div><span></span> Enterprise (50%)</div>
+        <div><span></span> Pro (30%)</div>
+        <div><span></span> Basic (20%)</div>
+      </div>
+    </mat-card>
+
+    <mat-card class="chart-card">
+      <div class="chart-title">Tenant Status</div>
+      <div class="small-chart-wrapper">
+        <canvas baseChart [data]="statusChartData" [type]="'pie'">
+        </canvas>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- TABLE -->
+  <mat-card appearance="outlined" class="table-wrapper">
+    <mat-card-header>
+      <mat-card-title>Recent Tenants</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @if(isLoading()) {
+      <div class="table-loader">
+        <mat-spinner diameter="50"></mat-spinner>
+      </div>
+      }
+
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search....." #input>
+      </mat-form-field>
+      <section class="table-container">
+
+        <table mat-table [dataSource]="dataSource" matSort>
+
+          <ng-container matColumnDef="companyName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>TENANT</th>
+            <td mat-cell *matCellDef="let row">{{ row.companyName | titlecase }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="plan">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>PLAN</th>
+            <td mat-cell *matCellDef="let row">{{ row.plan }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="users">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>TOTAL USERS</th>
+            <td mat-cell *matCellDef="let row">{{ row.users }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>STATUS</th>
+            <td mat-cell *matCellDef="let row">
+              <mat-chip [class]="getStatusClass(row.status)">{{ row.status }}</mat-chip>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef>JOINED</th>
+            <td mat-cell *matCellDef="let row">{{ row.createdAt }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" [attr.colspan]="displayedColumns.length">
+              @if(!isLoading()) {
+              <div class="empty-state">
+                <img src="images/no-data.svg" alt="No Data" />
+                <h3>No Data Available</h3>
+                <p>Users are not present</p>
+              </div>
+              }
+            </td>
+          </tr>
+
+        </table>
+      </section>
+      <mat-paginator [pageSize]="5" showFirstLastButtons />
+    </mat-card-content>
+  </mat-card>
+
+</div>

@@ -1,39 +1,205 @@
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 
+
+:root {
+  /* --- LIGHT THEME (Your Existing Colors) --- */
+  --bg-primary: #f5f7fb;
+  --bg-card: #ffffff;
+  --bg-header-row: #fce4ec;
+  --border-color: rgba(0, 0, 0, 0.08);
+  
+  --text-main: #1f2937;
+  --text-muted: #777777;
+  --text-header-cell: #c2185b;
+  
+  --primary-gradient: linear-gradient(135deg, #e91e63, #f06292);
+  --primary-color: #e91e63;
+  --primary-hover: rgba(233, 30, 99, 0.04);
+  --primary-shadow: rgba(233, 30, 99, 0.22);
+  
+  --chart-border: #f1d7df;
+}
+
+.dark-theme {
+  /* --- DARK THEME (Premium Midnight) --- */
+  --bg-primary: #0f172a; /* Deep Slate */
+  --bg-card: #1e293b;    /* Lighter Slate */
+  --bg-header-row: #334155;
+  --border-color: rgba(255, 255, 255, 0.1);
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-header-cell: #f472b6; /* Lighter Pink for Dark */
+  
+  /* Premium Dark Gradient: Deep Rose to Purple */
+  --primary-gradient: linear-gradient(135deg, #f43f5e, #881337); 
+  --primary-color: #fb7185;
+  --primary-hover: rgba(251, 113, 133, 0.08);
+  --primary-shadow: rgba(0, 0, 0, 0.4);
+  
+  --chart-border: #334155;
+  
+  /* Angular Material Dark Overrides */
+  color-scheme: dark;
+}
+
+
 html {
+
+  color-scheme: light;
+  @include mat.theme((
+    color: mat.$rose-palette,
+    typography: Roboto,
+    density: 0
+  ));
+}
+
+html,
+body {
   height: 100%;
-  @include mat.theme(
-    (
-      color: (
-        primary: mat.$rose-palette,
-        tertiary: mat.$red-palette,
-      ),
-      typography: Roboto,
-      density: 0,
-    )
-  );
 }
 
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
   margin: 0;
-  height: 100%;
+  font-family: Roboto, sans-serif;
+  background: #f5f7fb;
 }
-/* You can add global styles to this file, and also import other style files */
+
+/* html, body {
+  height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  transition: background-color 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+} */
+
+/* GLOBAL FIXES */
+* {
+  box-sizing: border-box;
+}
+
+.mat-mdc-card, .chart-card, .tenant-card, .stat-card {
+  background: var(--bg-card) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-main) !important;
+}
+
+/* REMOVE TRANSPARENCY ISSUES */
+.mat-mdc-menu-panel,
+.mat-mdc-select-panel,
+.mat-mdc-autocomplete-panel,
+.mat-mdc-dialog-surface {
+  // background: white !important;
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+}
+
+/* FORM FIELD FIX */
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+/* TABLE FIX */
+.mat-mdc-table {
+  // background: white;
+  background: var(--bg-card) !important;
+  color: var(--text-main);
+}
+
+.add-btn {
+  color: var(--primary-color) !important;
+  cursor: pointer;
+}
+
+.empty-state {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  img {
+    width: 120px;
+    opacity: 0.8;
+  }
+  h3 {
+    margin: 0;
+    font-size: 20px;
+  }
+  p {
+    color: #777;
+  }
+}
+
+/* Mat Table style */
+
+
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-row:hover {
+  // background: rgba(233,30,99,0.04);
+  background: var(--primary-hover) !important;
+}
+
+.table-wrapper {
+  position: relative;
+}
+
+.table-loader {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.table-container {
+    max-height: 300px;
+    overflow: auto;
+}
+
+.mat-mdc-header-row {
+  // background: #fce4ec;
+  background: var(--bg-header-row) !important;
+}
+
+.mat-mdc-header-cell {
+  // color: #c2185b;
+  color: var(--text-header-cell) !important;
+  font-weight: 600;
+}
+
+/* STATUS COLORS */
+.active {
+  background: #e8f5e9 !important;
+  color: #2e7d32 !important;
+}
+
+.inactive {
+  background: #ffebee !important;
+  color: #c62828 !important;
+}
+
+.trial {
+  background: #fff3e0 !important;
+  color: #ef6c00 !important;
+}

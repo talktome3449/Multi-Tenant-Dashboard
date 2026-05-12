@@ -1,0 +1,33 @@
+<mat-toolbar class="toolbar">
+  <div class="left">
+    <div class="title">Dashboard Overview</div>
+  </div>
+
+  <div class="right">
+    <!-- <button class="theme-btn" (click)="toggleTheme()">
+      <mat-icon>dark_mode</mat-icon>
+    </button> -->
+    <button
+      mat-icon-button
+      class="profile-btn"
+      [matMenuTriggerFor]="profileMenu"
+    >
+      <div class="avatar-circle">DA</div>
+    </button>
+  </div>
+</mat-toolbar>
+
+<mat-menu class="profile-menu" #profileMenu="matMenu">
+  <div class="profile-header">
+    <div class="profile-avatar">DA</div>
+    <div>
+      <div class="profile-name">Deepak Agrawal</div>
+      <div class="profile-role">Admin</div>
+    </div>
+  </div>
+
+  <button class="login-button" mat-menu-item (click)="login()">
+    <mat-icon>login</mat-icon>
+    <span>Login</span>
+  </button>
+</mat-menu>
