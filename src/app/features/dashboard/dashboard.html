@@ -22,15 +22,25 @@
     </mat-card>
 
     <mat-card class="chart-card large-card">
-      <div class="chart-title">Users Per Tenant</div>
+      <!-- <div class="chart-title">Users Per Tenant</div>
       <div class="chart-wrapper">
         <canvas baseChart [data]="usersChartData" [type]="'line'">
         </canvas>
+      </div> -->
+      <div class="chart-title">Plan Distribution</div>
+      <div class="small-chart-wrapper">
+        <canvas baseChart [data]="planChartData" [type]="'doughnut'">
+        </canvas>
+      </div>
+      <div class="legend">
+        <div><span></span> Enterprise (50%)</div>
+        <div><span></span> Pro (30%)</div>
+        <div><span></span> Basic (20%)</div>
       </div>
     </mat-card>
   </div>
 
-  <div class="small-chart-grid">
+  <!-- <div class="small-chart-grid">
     <mat-card class="chart-card">
       <div class="chart-title">Plan Distribution</div>
       <div class="small-chart-wrapper">
@@ -51,7 +61,7 @@
         </canvas>
       </div>
     </mat-card>
-  </div>
+  </div> -->
 
   <!-- TABLE -->
   <mat-card appearance="outlined" class="table-wrapper">
