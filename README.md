@@ -1,59 +1,245 @@
-# MultiTenantDashboard
+# Multi-Tenant SaaS Dashboard (Frontend)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.9.
+A modern enterprise-grade Multi-Tenant SaaS Admin Dashboard built using Angular 21, Angular Material, Chart.js, and RxJS.
 
-## Development server
+This project is designed from a recruiter and enterprise architecture perspective to demonstrate scalable frontend development skills, reusable UI patterns, responsive dashboard systems, REST API integration, and modern Angular development practices.
 
-To start a local development server, run:
+---
+
+## 🚀 Live Demo
+
+🔗 Live Application  
+https://multi-tenant-dashboard-ecru.vercel.app/
+
+🔗 Frontend Repository  
+https://github.com/talktome3449/Multi-Tenant-Dashboard
+
+🔗 Backend Repository  
+https://github.com/talktome3449/Multi-Tenant-Dashboard-Node.js
+
+🔗 Portfolio  
+https://deepakagrawalfolio.netlify.app
+
+## Screenshots
+<img width="950" height="404" alt="image" src="https://github.com/user-attachments/assets/b91db911-ce79-439c-9f44-2f87da1cac82" />
+<img width="947" height="407" alt="image" src="https://github.com/user-attachments/assets/d7868344-0188-4959-b923-1e966f46dbc2" />
+<img width="952" height="382" alt="image" src="https://github.com/user-attachments/assets/f6a33658-ce76-46dc-830c-20f07d3312d2" />
+
+---
+
+# 📌 Project Overview
+
+This project simulates a real-world SaaS Control Panel where multiple tenants/organizations can be managed from a centralized admin dashboard.
+
+The application focuses on:
+
+- Enterprise dashboard architecture
+- Angular Material UI implementation
+- Multi-tenant management
+- Responsive admin layouts
+- REST API integration
+- Reusable components
+- Professional recruiter-focused UI
+- Scalable frontend folder structure
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+- Angular 21
+- Angular Material
+- RxJS
+- Chart.js
+- ng2-charts
+- TypeScript
+- SCSS
+- Angular Reactive Forms
+
+## Backend Integration
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+
+---
+
+# ✨ Features Implemented
+
+## ✅ Dashboard
+
+- Responsive admin dashboard
+- Enterprise SaaS layout
+- Analytics cards
+- Revenue metrics
+- Active users metrics
+- Recent tenant table
+- Responsive chart section
+
+---
+
+## ✅ Charts & Analytics
+
+Implemented using Chart.js + ng2-charts
+
+### Charts Included
+
+- Revenue Analytics (Bar Chart)
+- Users Growth (Line Chart)
+- Plan Distribution (Doughnut Chart)
+- Tenant Status Overview (Pie Chart)
+
+---
+
+## ✅ Angular Material Components Used
+
+- Mat Sidenav
+- Mat Toolbar
+- Mat Table
+- Mat Card
+- Mat Dialog
+- Mat Form Field
+- Mat Select
+- Mat Radio Button
+- Mat Menu
+- Mat Chips
+- Mat Snackbar
+- Mat Progress Spinner
+- Mat Tooltip
+- Mat Pagination
+
+---
+
+## ✅ Tenant Management
+
+- Add Tenant
+- Tenant Cards UI
+- Dialog-based Reactive Form
+- Validation Messages
+- Dynamic Status & Plan UI
+- API Integration with MongoDB
+- Auto-refresh after add/update
+
+---
+
+## ✅ User Management
+
+- User Table
+- Add User
+- Edit User
+- Delete User
+- Dialog-based Forms
+- Loading State
+- Empty State UI
+- Pagination
+- Sorting
+- Search UI
+
+---
+
+## ✅ Responsive UI
+
+- Desktop Layout
+- Tablet Layout
+- Mobile Responsive Structure
+- Enterprise Dashboard Spacing
+- Professional Card Design
+- Recruiter-focused UI Styling
+
+---
+
+# 📂 Frontend Folder Structure
 
 ```bash
-ng serve
+src/
+│
+├── app/
+│   ├── core/
+│   ├── shared/
+│   ├── layouts/
+│   ├── pages/
+│   │   ├── dashboard/
+│   │   ├── tenants/
+│   │   ├── users/
+│   │
+│   ├── services/
+│   ├── models/
+│   ├── constants/
+│   ├── interceptors/
+│   ├── guards/
+│   └── dialogs/
+│
+├── assets/
+├── environments/
+└── styles/
 ```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# 🌐 API Integration
 
-## Code scaffolding
+## Tenant APIs
+- GET     /api/tenants
+- POST    /api/tenants
+- PUT     /api/tenants/:id
+- DELETE  /api/tenants/:id
+## User APIs
+- GET     /api/users
+- POST    /api/users
+- PUT     /api/users/:id
+- DELETE  /api/users/:id
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# 🚧 Future Enhancements
+- Dark / Light Theme Switcher
+- JWT Authentication
+- Refresh Token Handling
+- Role-based Authorization
+- Route Guards
+- HTTP Interceptors
+- Lazy Loading
+- Signals-based State Management
+- Real-time Notifications
+- WebSocket Integration
+- Activity Logs
+- Export to CSV/PDF
+- Advanced Dashboard Filters
+- Tenant Analytics
+- Role-based Sidebar Menus
+- SSR Optimization
+- Docker Deployment
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+# ⚙️ Clone, Install, & Run
+- git clone https://github.com/talktome3449/Multi-Tenant-Dashboard.git
+- cd Multi-Tenant-Dashboard
+- npm install
+- ng serve
+- http://localhost:4200
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+---
 
-To build the project run:
+# 📬 Contact
 
-```bash
-ng build
-```
+## Portfolio
+https://deepakagrawalfolio.netlify.app
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## GitHub
+https://github.com/talktome3449
 
-## Running unit tests
+## LinkedIn
+https://www.linkedin.com/in/agrawaldk1990
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## WhatsApp & Phone
++91-9130057478
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
+# 📜 License
 
-For end-to-end (e2e) testing, run:
+This project is developed for portfolio and learning purposes.
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## ⭐ If you liked this project, feel free to star the repo.
