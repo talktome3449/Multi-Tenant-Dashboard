@@ -12,10 +12,10 @@ This project is designed from a recruiter and enterprise architecture perspectiv
 https://multi-tenant-dashboard-ecru.vercel.app/
 
 🔗 Frontend Repository  
-https://github.com/talktome3449/Multi-Tenant-Dashboard
+https://github.com/deepak-agrawal-dev/Multi-Tenant-Dashboard
 
 🔗 Backend Repository  
-https://github.com/talktome3449/Multi-Tenant-Dashboard-Node.js
+https://github.com/deepak-agrawal-dev/Multi-Tenant-Dashboard-Node.js
 
 🔗 Portfolio  
 https://deepakagrawalfolio.netlify.app
@@ -212,7 +212,7 @@ src/
 ---
 
 # ⚙️ Clone, Install, & Run
-- git clone https://github.com/talktome3449/Multi-Tenant-Dashboard.git
+- git clone https://github.com/deepak-agrawal-dev/Multi-Tenant-Dashboard.git
 - cd Multi-Tenant-Dashboard
 - npm install
 - ng serve
@@ -228,10 +228,10 @@ src/
 https://deepakagrawalfolio.netlify.app
 
 ## GitHub
-https://github.com/talktome3449
+https://github.com/deepak-agrawal-dev
 
 ## LinkedIn
-https://www.linkedin.com/in/agrawaldk1990
+https://www.linkedin.com/in/deepakagrawal-ng
 
 ## WhatsApp & Phone
 +91-9130057478
